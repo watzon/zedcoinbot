@@ -16,7 +16,7 @@ const getUsername = (obj) => {
   return [obj.firstName, obj.lastName].filter(x => x !== null && x !== undefined).join(' ')
 }
 
-// Watch every incomming message and make sure all users
+// Watch every incoming message and make sure all users
 // are added to the list
 bot.use(async (ctx, next) => {
   if (ctx.message) {

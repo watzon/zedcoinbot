@@ -3,5 +3,6 @@ module.exports = (bot) => {
   require('./start')(bot)
   require('./referralCode')(bot),
   require('./referralCount')(bot),
-  require('./referredBy')(bot)
+  require('./referredBy')(bot),
+  require('./faq')(bot)
 }

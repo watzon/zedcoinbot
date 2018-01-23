@@ -4,6 +4,7 @@ Welcome to @ZEDCoinBot! Let me tell you what I can do.
 Commands:
 
 /help - Show this message
+/faq - Display a list of common questions
 /referralcode - Display your referral code
 /referralcount - Show how many users you've referred
 /referredby [code] - Use another user's referral code
