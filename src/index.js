@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const Telegraf = require('telegraf')
 const mongoose = require('mongoose')
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.BOT_TOKEN, { username: 'ZEDCoinBot' })
 
 // Connect mongoose to mongodb
 mongoose.connect(process.env.DB_CONNECTION || 'mongodb://localhost/zedcoinbot')
