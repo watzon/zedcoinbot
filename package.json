@@ -1,0 +1,17 @@
+{
+  "name": "zedcoinbot",
+  "version": "0.1.0",
+  "description": "Telegram bot for @ZEDNetworkInc",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Watson <chris@watzon.me>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mongoose": "^5.0.1",
+    "randomstring": "^1.1.5",
+    "telegraf": "^3.17.5"
+  }
+}
