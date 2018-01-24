@@ -1,18 +1,11 @@
 const { User } = require('../models/user')
 const logger = require('../logger')
-
-const getUsername = (obj) => {
-  if (obj.username) {
-    return obj.username
-  }
-
-  return [obj.first_name, obj.last_name].filter(x => !!x).join(' ')
-}
+const { getUsername } = require('../helpers')
 
 module.exports = async (ctx, next) => {
   if (ctx.message) {
     const tguser = ctx.message.from
-    const username = getUsername(tguser)
+    const username = getUsername(ctx)
     User.findOne({ tgid: tguser.id }).then(async (user) => {
       if (user) {
         logger.silly('User exists')

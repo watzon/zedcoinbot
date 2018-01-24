@@ -1,6 +1,11 @@
 const { User } = require('../models/user')
+const logger = require('../logger')
+const { getUsername } = require('../helpers')
 
 module.exports = (bot) => bot.command('referredby', async (ctx) => {
+  const username = getUsername(ctx)
+  logger.info(`Command: ${username} -> /referredby`)
+
   const fromUser = ctx.message.from
   const referralCode = ctx.message.text.split(' ')[1]
 

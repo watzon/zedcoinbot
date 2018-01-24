@@ -1,4 +1,6 @@
 const { User } = require('../models/user')
+const logger = require('../logger')
+const { getUsername } = require('../helpers')
 
 const countMessage = (num) => {
   num = parseInt(num)
@@ -15,10 +17,15 @@ const countMessage = (num) => {
   }
 }
 
-module.exports = (bot) => bot.command('referralcount', async (ctx) => {
-  const tguser = ctx.message.from
-  const user = await User.findOne({ tgid: tguser.id })
+module.exports = (bot) => {
+  bot.command('referralcount', async (ctx) => {
+    const username = getUsername(ctx)
+    logger.info(`Command: ${username} -> /referralcount`)
 
-  const referralCount = user.referral_count
-  ctx.reply(`@${tguser.username} your referral count is ${referralCount}\n\n${countMessage(referralCount)}`)
-})
+    const tguser = ctx.message.from
+    const user = await User.findOne({ tgid: tguser.id })
+
+    const referralCount = user.referral_count
+    ctx.reply(`@${tguser.username} your referral count is ${referralCount}\n\n${countMessage(referralCount)}`)
+  })
+}

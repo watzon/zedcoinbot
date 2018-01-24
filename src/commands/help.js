@@ -1,3 +1,6 @@
+const logger = require('../logger')
+const { getUsername } = require('../helpers')
+
 const helpMessage = `
 Welcome to @ZEDCoinBot! I am the official bot for @ZEDNetworkInc.
 
@@ -12,4 +15,10 @@ Commands:
 I'm still being actively developed, so if you have any questions or want to report a bug just send a PM to @watzon.
 `
 
-module.exports = (bot) => bot.command(['help', 'start'], (ctx) => ctx.reply(helpMessage))
+module.exports = (bot) => {
+  bot.command(['help', 'start'], (ctx) => {
+    const username = getUsername(ctx)
+    logger.info(`Command: ${username} -> /[help, start]`)
+    ctx.reply(helpMessage)
+  })
+}

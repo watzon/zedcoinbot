@@ -1,3 +1,6 @@
+const logger = require('../logger')
+const { getUsername } = require('../helpers')
+
 const faqMessage = `
 ZED Network FAQ
 
@@ -26,4 +29,10 @@ Q: Is there a whitepaper I can look at?
 A: There sure is. http://bit.ly/zedwhitepaper
 `
 
-module.exports = (bot) => bot.command('faq', (ctx) => ctx.reply(faqMessage))
+module.exports = (bot) => {
+  bot.command('faq', (ctx) => {
+    const username = getUsername(ctx)
+    logger.info(`Command: ${username} -> /faq`)
+    ctx.reply(faqMessage)
+  })
+}
