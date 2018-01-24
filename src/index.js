@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const Telegraf = require('telegraf')
 const mongoose = require('mongoose')
+const logger = require('./logger')
 const bot = new Telegraf(process.env.BOT_TOKEN, { username: 'ZEDCoinBot' })
 
 // Connect mongoose to mongodb
@@ -14,4 +15,5 @@ bot.use(require('./middleware/createAndUpdateUsers'))
 // Load commands
 require('./commands')(bot)
 
+logger.info('Bot polling')
 bot.startPolling()

@@ -12,6 +12,7 @@
     "dotenv": "^4.0.0",
     "mongoose": "^5.0.1",
     "randomstring": "^1.1.5",
-    "telegraf": "^3.17.5"
+    "telegraf": "^3.17.5",
+    "winston": "^3.0.0-rc1"
   }
 }
