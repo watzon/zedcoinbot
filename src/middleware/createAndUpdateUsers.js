@@ -6,7 +6,7 @@ const getUsername = (obj) => {
     return obj.username
   }
 
-  return [obj.firstName, obj.lastName].filter(x => !!x).join(' ')
+  return [obj.first_name, obj.last_name].filter(x => !!x).join(' ')
 }
 
 module.exports = async (ctx, next) => {
