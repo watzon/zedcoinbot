@@ -12,7 +12,7 @@ module.exports = (bot) => bot.command('referredby', async (ctx) => {
   // Send a message if no referral code was included
   if (!referralCode)
     logger.info('No referral code supplied')
-  return ctx.reply('I need a referral code for whoever referred you.\nLike this: /referredby TDhdhvEs')
+    return ctx.reply('I need a referral code for whoever referred you.\nLike this: /referredby TDhdhvEs')
 
   const referredUser = await User.findOne({ tgid: fromUser.id })
   const referredByUser = await User.findOne({ referral_code: referralCode })
